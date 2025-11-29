@@ -61,13 +61,12 @@ function VoteOptions({ onVote, onReset, canReset }: VoteOptionsProps) {
         Bad
       </button>
 
-      <button
-        className={`${css.button} ${css.reset}`}
-        onClick={onReset}
-        disabled={!canReset}
-      >
-        Reset
-      </button>
+      {/* 👉 Показуємо Reset тільки якщо є голоси */}
+      {canReset && (
+        <button className={`${css.button} ${css.reset}`} onClick={onReset}>
+          Reset
+        </button>
+      )}
     </div>
   );
 }
